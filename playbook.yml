@@ -1,0 +1,16 @@
+- hosts: app
+  tasks:
+    - name: rvm1_default_ruby_version before using rvm1 role
+      debug:
+        msg: "{{ rvm1_default_ruby_version }}"
+
+- hosts: app
+  roles:
+    - rvm_io.ruby
+    - my_role
+
+- hosts: app
+  tasks:
+    - name: rvm1_default_ruby_version after using rvm1 role
+      debug:
+        msg: "{{ rvm1_default_ruby_version }}"
